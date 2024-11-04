@@ -3,7 +3,7 @@
 FROM debian:bookworm-slim AS build
 ARG BUILD_HASH
 
-# Install dependencies
+# Install rclone dependencies
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     ca-certificates && \
@@ -36,7 +36,7 @@ ENV NOTIFY_URL=https://your-webhook-url.com/notify
 
 
 
-CMD [ "bash", "restore_backup_start.sh", "server" ] \
+CMD [ "bash", "restore_backup_start.sh", "server" ] 
     # To enable dev mode: \
     # 1. Set DEV_MODE=true during docker build: --build-arg DEV_MODE=true \
     # 2. Run: docker run -it --rm <image_name> npm run dev
